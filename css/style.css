@@ -1277,3 +1277,152 @@ textarea.form-control {
     color: #41464b;
 }
 
+/*
+==============================================
+  RESPONSIVE DESIGN MEDIA QUERIES
+==============================================
+*/
+
+/* --- Untuk Tablet (lebar di bawah 992px) --- */
+@media (max-width: 992px) {
+    .container, .navbar-container {
+        max-width: 960px;
+    }
+
+    /* Ubah grid 3 kolom menjadi 2 kolom */
+    .services-grid, .testimonial-grid-final {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    /* Susun ulang hero section */
+    .hero-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    .hero-image-container {
+        order: -1; /* Pindahkan gambar ke atas teks */
+        margin-bottom: 40px;
+    }
+
+    /* Susun ulang layout kontak */
+    .contact-wrapper {
+        grid-template-columns: 1fr;
+    }
+
+    /* Halaman otentikasi jadi 1 kolom */
+    .auth-container {
+        grid-template-columns: 1fr;
+    }
+    .auth-image-side {
+        display: none; /* Sembunyikan gambar di tablet agar fokus ke form */
+    }
+    .auth-form-side {
+        border-radius: 24px;
+    }
+    
+    /* Navbar di tablet */
+    .main-nav {
+        gap: 5px;
+    }
+    .nav-link {
+        padding: 10px 15px;
+        font-size: 0.9rem;
+    }
+}
+
+
+/* --- Untuk HP (lebar di bawah 768px) --- */
+@media (max-width: 768px) {
+    body {
+        font-size: 16px; /* Ukuran font dasar untuk HP */
+    }
+    section {
+        padding: 60px 0;
+    }
+
+    /* --- Navbar di HP --- */
+    /* Navbar tidak lagi 'terpisah', tapi menjadi bar biasa di atas */
+    .site-header {
+        position: static;
+    }
+    .header-logo {
+        position: static;
+        padding: 20px;
+        text-align: center;
+        display: block;
+    }
+    .main-nav {
+        position: static;
+        width: 100%;
+        transform: none;
+        left: auto;
+        top: auto;
+        border-radius: 0;
+        flex-direction: column;
+        padding: 10px 0;
+    }
+    .nav-menu {
+        justify-content: center;
+        flex-wrap: wrap; /* Biarkan menu wrap jika tidak cukup */
+    }
+    .nav-auth {
+        justify-content: center;
+        margin-top: 10px;
+    }
+    main {
+        padding-top: 20px; /* Reset padding karena navbar tidak fixed lagi */
+    }
+
+
+    /* --- Ubah semua grid menjadi 1 kolom --- */
+    .services-grid, 
+    .testimonial-grid-final,
+    .doctor-selection-grid,
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Ukuran font heading dikecilkan */
+    .section-header h2, .hero-title, .auth-form-side h3 {
+        font-size: 1.8rem;
+    }
+
+    /* Halaman admin di HP */
+    .admin-wrapper {
+        flex-direction: column;
+    }
+    .admin-sidebar {
+        width: 100%;
+        min-height: auto;
+        flex-direction: row; /* Sidebar menjadi bar horizontal */
+        justify-content: space-between;
+        align-items: center;
+    }
+    .sidebar-header {
+        padding: 15px 20px;
+        border-bottom: none;
+    }
+    .sidebar-nav ul {
+        display: flex; /* Menu jadi horizontal */
+        margin: 0;
+        padding: 0 10px;
+    }
+    .sidebar-nav li a {
+        padding: 15px;
+        border-left: none;
+        border-bottom: 3px solid transparent;
+    }
+    .sidebar-nav li.active a {
+        border-left: none;
+        border-bottom-color: var(--primary-color);
+    }
+
+    .admin-content {
+        padding: 20px;
+    }
+    
+    /* Kartu testimoni dan dokter */
+    .testimonial-grid-final, .doctor-selection-grid {
+        grid-template-columns: 1fr;
+    }
+}
