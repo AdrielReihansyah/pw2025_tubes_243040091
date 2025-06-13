@@ -762,3 +762,518 @@ textarea.form-control {
     text-align: center;
     font-size: 0.9rem;
 }
+
+/*
+==============================================
+  BACK-LINK FOR SEARCH PAGE
+==============================================
+*/
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px; /* Jarak antara ikon dan teks */
+    margin-bottom: 40px; /* Jarak ke hasil pencarian di bawahnya */
+    text-decoration: none;
+    color: var(--secondary-color);
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.back-link:hover {
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+
+.back-link svg {
+    width: 20px;
+    height: 20px;
+    transition: transform 0.3s ease;
+}
+
+.back-link:hover svg {
+    transform: translateX(-3px); /* Ikon sedikit bergerak ke kiri saat hover */
+}
+
+/*
+==============================================
+  SATISFYING AUTH PAGES - FINAL VERSION
+==============================================
+*/
+
+/* Animasi untuk panel form */
+@keyframes fadeInUpScale {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.98);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.auth-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+    background-image: 
+        linear-gradient(45deg, rgba(0, 123, 255, 0.6), rgba(0, 37, 77, 0.8)),
+        url('https://images.unsplash.com/photo-1538108149393-fbbd81895907?q=80&w=1828&auto=format&fit=crop');
+
+    background-size: cover; /* Agar gambar memenuhi layar */
+    background-position: center; /* Posisi gambar di tengah */
+    background-repeat: no-repeat; /* Jangan ulangi gambar */
+}
+
+
+
+.auth-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    max-width: 1000px;
+    min-height: 650px;
+    background-color: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    border-radius: 24px;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    overflow: hidden;
+    z-index: 1;
+}
+
+.auth-panel { padding: 50px; }
+
+.auth-image-side {
+    background-size: cover;
+    background-position: center;
+    color: var(--white-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 60px;
+}
+.auth-image-side h2 { text-align: left; margin: 0 0 10px 0; color: var(--white-color); font-size: 2.5rem; text-shadow: 0 2px 10px rgba(0,0,0,0.3);}
+.auth-image-side p { font-size: 1.2rem; opacity: 0.95; line-height: 1.7; text-shadow: 0 2px 5px rgba(0,0,0,0.3);}
+
+.auth-form-side {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--white-color);
+    animation: fadeInUpScale 0.8s ease-out forwards;
+}
+
+.form-wrapper { width: 100%; max-width: 380px; }
+.auth-logo { font-size: 1.8rem; font-weight: 700; color: var(--dark-color); text-decoration: none; margin-bottom: 20px; display: block;}
+.auth-form-side h3 { font-size: 2rem; color: var(--dark-color); margin-bottom: 10px; }
+.auth-form-side p { margin-bottom: 30px; font-size: 1rem;}
+.auth-form-side p a { color: var(--primary-color); text-decoration: none; font-weight: 600; }
+
+/* Alert Messages (Sukses/Error) */
+.auth-alert { padding: 15px; border-radius: var(--radius-md); margin-bottom: 20px; border: 1px solid; font-weight: 500;}
+.auth-alert.success { color: #0f5132; background-color: #d1e7dd; border-color: #badbcc; }
+.auth-alert.error { color: #842029; background-color: #f8d7da; border-color: #f5c2c7; }
+
+
+/* --- FLOATING LABEL FORM GROUP --- */
+.form-group {
+    position: relative;
+    margin-bottom: 30px;
+}
+.form-control {
+    width: 100%;
+    padding: 16px 0 8px 0; /* Padding bawah lebih kecil */
+    border: none;
+    border-bottom: 2px solid var(--border-color);
+    background-color: transparent;
+    font-size: 1.1rem;
+    color: var(--dark-color);
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.form-group label {
+    position: absolute;
+    top: 15px;
+    left: 0;
+    font-size: 1.1rem;
+    color: var(--secondary-color);
+    pointer-events: none; /* Penting agar bisa klik input di bawahnya */
+    transition: all 0.3s ease;
+}
+
+/* Ini bagian utamanya */
+.form-control:focus {
+    border-bottom-color: var(--primary-color);
+}
+.form-control:focus ~ label,
+.form-control:not(:placeholder-shown) ~ label {
+    top: -14px;
+    left: 0;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+/* Akhir dari magic */
+
+
+.btn-full {
+    transition: all 0.3s ease;
+}
+/* Efek tombol ditekan */
+.btn-full:active {
+    transform: scale(0.98);
+    box-shadow: 0 2px 10px rgba(0, 123, 255, 0.3);
+}
+
+/*
+==============================================
+  APPOINTMENT & STATUS PAGE STYLES
+==============================================
+*/
+
+.page-background {
+    background-color: var(--body-color);
+}
+
+.appointment-page {
+    max-width: 900px;
+    margin: 50px auto;
+    background-color: var(--white-color);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    padding: 40px;
+}
+
+.back-to-home-btn {
+    display: inline-block;
+    margin-bottom: 30px;
+    color: var(--secondary-color);
+    text-decoration: none;
+    font-weight: 500;
+}
+.back-to-home-btn:hover { color: var(--primary-color); }
+
+.selection-container h1, .form-container-appointment h2 {
+    font-size: 2rem;
+    color: var(--dark-color);
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+.selection-container p { margin-bottom: 40px; }
+
+/* --- Tahap 1: Pilih Dokter --- */
+.doctor-selection-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+.doctor-select-card {
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+.doctor-select-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+}
+.doctor-select-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+.doctor-select-info { padding: 20px; }
+.doctor-select-info h3 { margin: 0 0 5px 0; font-size: 1.3rem; }
+.doctor-select-info p { margin: 0 0 20px 0; color: var(--secondary-color); }
+
+/* --- Tahap 2: Form Janji Temu --- */
+.selected-doctor-info {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background-color: var(--body-color);
+    padding: 20px;
+    border-radius: var(--radius-md);
+}
+.selected-doctor-info img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.selected-doctor-info p { margin: 0; }
+.selected-doctor-info h3 { margin: 0; font-size: 1.5rem; color: var(--dark-color); }
+.selected-doctor-info span { color: var(--primary-color); font-weight: 500;}
+
+.form-container-appointment hr {
+    border: none;
+    border-top: 1px solid var(--border-color);
+    margin: 30px 0;
+}
+.form-container-appointment .form-group {
+    position: relative;
+    margin-bottom: 30px;
+}
+.form-container-appointment .form-control {
+    background-color: var(--body-color);
+    border: 2px solid transparent;
+    border-radius: var(--radius-md);
+    padding: 16px;
+}
+.form-container-appointment .form-control:focus {
+    background-color: var(--white-color);
+    border-color: var(--primary-color);
+}
+.form-container-appointment label {
+    position: absolute;
+    top: 18px; left: 18px;
+    color: var(--secondary-color);
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+.form-container-appointment .form-control:focus ~ label,
+.form-container-appointment .form-control:not(:placeholder-shown) ~ label {
+    top: -10px;
+    left: 12px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    background-color: var(--white-color);
+    padding: 0 5px;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 40px;
+}
+
+/* --- Halaman Status --- */
+.status-page-container {
+    max-width: 600px;
+    margin: 100px auto;
+    text-align: center;
+    background-color: var(--white-color);
+    padding: 50px;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+}
+.status-icon { margin-bottom: 20px; }
+.status-icon svg { width: 80px; height: 80px; }
+.status-icon.success { color: #198754; }
+.status-icon.error { color: #dc3545; }
+.status-page-container h1 { font-size: 2.5rem; margin-bottom: 15px; }
+.status-page-container p { font-size: 1.1rem; color: var(--secondary-color); margin-bottom: 30px; }
+
+
+/* --- General Admin Layout --- */
+.admin-body {
+    background-color: #f4f7fa; /* Warna latar yang lembut */
+    color: #333;
+}
+
+.admin-wrapper {
+    display: flex;
+}
+
+/* --- Sidebar --- */
+.admin-sidebar {
+    width: 260px;
+    background-color: #1e293b; /* Warna biru gelap modern */
+    color: #a9b7d0;
+    min-height: 100vh;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-header {
+    padding: 25px;
+    text-align: center;
+    background-color: rgba(0,0,0,0.2);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+.sidebar-header a {
+    color: var(--white-color);
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.sidebar-nav {
+    flex-grow: 1;
+}
+.sidebar-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+.sidebar-nav li a {
+    display: block;
+    padding: 16px 25px;
+    color: #cbd5e1; /* Warna teks link */
+    text-decoration: none;
+    border-left: 4px solid transparent;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+.sidebar-nav li a:hover {
+    background-color: rgba(71, 85, 105, 0.2);
+    color: var(--white-color);
+}
+/* Style untuk link yang sedang aktif */
+.sidebar-nav li.active > a {
+    border-left-color: var(--primary-color);
+    background-color: rgba(0, 123, 255, 0.1);
+    color: var(--white-color);
+    font-weight: 600;
+}
+
+/* --- Main Content Area --- */
+.admin-content {
+    width: 100%;
+    padding: 30px 40px;
+    overflow-y: auto;
+}
+.content-header {
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 30px;
+}
+.content-header h1 {
+    margin: 0;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--dark-color);
+}
+.content-header p {
+    margin: 5px 0 0 0;
+    font-size: 1.1rem;
+    color: var(--secondary-color);
+}
+.content-body h2 {
+    margin-top: 0;
+    font-size: 1.8rem;
+    color: var(--dark-color);
+    margin-bottom: 10px;
+}
+.content-body p {
+    font-size: 1.1rem;
+    color: var(--secondary-color);
+    max-width: 800px;
+    margin-bottom: 30px;
+}
+
+/* --- Message & Appointment Cards --- */
+.message-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.message-card {
+    background-color: var(--white-color);
+    border-radius: var(--radius-lg);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+}
+.message-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 7px 15px rgba(0,0,0,0.08);
+}
+.message-card.status-baru {
+    border-left: 5px solid var(--primary-color);
+}
+.message-card.status-Menunggu {
+    border-left: 5px solid #ffc107; /* Kuning untuk status menunggu */
+}
+.message-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    border-bottom: 1px solid var(--border-color);
+}
+.sender-info h4 { margin: 0 0 5px 0; font-size: 1.1rem; }
+.sender-info span { color: var(--secondary-color); font-size: 0.9rem; }
+.message-meta { text-align: right; }
+.message-meta .status {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #fff;
+}
+.message-card.status-baru .status,
+.message-card.status-Menunggu .status {
+    background-color: var(--primary-color);
+}
+.message-meta .timestamp { font-size: 0.85rem; color: var(--secondary-color); display: block; margin-top: 8px; }
+.message-body { padding: 20px; }
+.message-body h5 { margin: 0 0 10px 0; font-size: 1rem; font-weight: 600; }
+.message-actions {
+    padding: 15px 20px;
+    background-color: #f8f9fa;
+    border-top: 1px solid var(--border-color);
+    text-align: right;
+    border-bottom-left-radius: var(--radius-lg);
+    border-bottom-right-radius: var(--radius-lg);
+}
+.message-actions .btn { padding: 8px 18px; font-size: 0.9rem; }
+
+
+/* --- Data Table (Untuk Manajemen User) --- */
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--white-color);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    font-size: 0.95rem;
+}
+.data-table th, .data-table td {
+    padding: 16px;
+    text-align: left;
+}
+.data-table thead {
+    background-color: #f8f9fa;
+    border-bottom: 2px solid var(--border-color);
+}
+.data-table th {
+    font-weight: 600;
+    color: var(--dark-color);
+}
+.data-table tbody tr {
+    border-bottom: 1px solid #f1f1f1;
+}
+.data-table tbody tr:last-child {
+    border-bottom: none;
+}
+.data-table tbody tr:hover {
+    background-color: #fdfdfe;
+}
+.role-badge {
+    padding: 4px 10px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+.role-badge.role-admin {
+    background-color: #d1e7dd;
+    color: #0f5132;
+}
+.role-badge.role-pasien {
+    background-color: #e2e3e5;
+    color: #41464b;
+}
+

@@ -35,7 +35,7 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; <?php echo date("Y"); ?> Klinik Sehat Sejahtera. Desain Profesional oleh Gemini.</p>
+            <p>&copy; <?php echo date("Y"); ?> Klinik Sehat Sejahtera. Dibuat dengan Cinta Oleh Adriel.</p>
         </div>
     </div>
 </footer>
